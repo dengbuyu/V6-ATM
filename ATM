@@ -1,0 +1,87 @@
+#include<stdio.h>
+
+struct Account
+{
+	char name[100];
+	char password[7];
+	char username[19];
+	char idCard[19];
+	char tel[12];
+	float money;	
+};
+typedef struct Account Account;
+
+int language;//1-Chinese,2-English,3-Rich
+
+Account a;
+
+void signIn()
+{
+
+	
+}
+
+void signUp()
+{
+	printf("请输入姓名：\n");
+	scanf("%s",a.name);
+	
+	printf("请输入密码：\n");
+	scanf("%s",a.password);
+	
+	printf("请输入账号：\n");
+	scanf("%s",a.username);
+	
+	printf("请输入身份证：\n");
+	scanf("%s",a.idCard);
+	
+	printf("请输入电话：\n");
+	scanf("%s",a.idCard);
+	
+	a.money =0.0f; 
+	
+	printf("创建成功！\n");
+}
+
+void showMenu()
+{
+	if(language==1)
+	{
+		printf("登录，请按1\n");
+		printf("开户，请按2\n");
+		printf("退出，请按3\n");
+	}
+	else if(language==2)
+	{
+		printf("Sign in, press 1\n");
+		printf("Sign up, press 2\n");
+		printf("Sign out, press 3\n");
+	}
+	int n;
+	scanf("%d",&n);
+	if(n==1)
+	{
+		signIn();
+	}
+	else if(n==2)
+	{
+		signUp();
+	}
+	else if(n==3)
+	{
+		return;
+	}
+}
+
+int main()
+{
+	printf("中文服务，按1\n");
+	printf("English Service，Press 2\n");
+	printf("一夜暴富，按3\n");
+	
+	scanf("%d",&language);
+	
+	showMenu();
+	
+	return 0;
+}
