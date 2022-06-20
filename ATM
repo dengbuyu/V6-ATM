@@ -9,6 +9,71 @@ struct Account
 	char tel[12];
 	float money;	
 };
+
+struct Account
+{
+	char username[100];
+	char password[100];
+	
+	struct Account *next;
+};
+typedef struct Account Account;
+
+Account *head=NULL;//指向头结点 
+Account *tail=NULL;//指向尾结点 
+
+Account *curAccount=NULL;//记录当前账户 
+
+//找到返回1，否则返回0 
+int findAccount(Account a)
+{
+	Account *curp=head;
+	while(curp!=NULL)
+	{
+		if((strcmp(curp->username,a.username)==0)&&(strcmp(curp->password,a.password)==0))
+		{
+			curAccount=curp; 
+			return 1;
+		}
+		curp=curp->next;
+	}
+	return 0;
+}
+
+void updatePassword()
+{
+	printf("请输入旧密码：");
+	char oldPassword[100];
+	scanf("%s",oldPassword);
+	if(strcmp(oldPassword,curAccount->password)==0)
+	{
+		printf("请输入新密码：");
+		scanf("%s",curAccount->password);
+		printf("修改成功！\n");
+	}
+	else
+	{
+		printf("密码错误！不能修改！\n");
+	}
+}
+
+void signIn()
+{
+	for(int i=0;i<3;i++)
+	{
+		Account a; 
+		printf("请输入账号：");
+		scanf("%s",a.username);
+		
+		printf("请输入密码：");
+		scanf("%s",a.password);
+		
+		if(findAccount(a))
+		{
+			printf("登录成功！\n");
+			updatePas
+
+
 typedef struct Account Account;
 
 int language;//1-Chinese,2-English,3-Rich
